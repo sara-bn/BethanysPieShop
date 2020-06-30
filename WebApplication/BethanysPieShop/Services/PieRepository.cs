@@ -19,13 +19,13 @@ namespace BethanysPieShop.Services
         public IEnumerable<Pie> AllPies()
         {
 
-            return _dbContext.Pies.ToList();
+            return _dbContext.Pies.Include(c => c.Category);
             
         }
 
         public IEnumerable<Pie> PiesOfTheWeek()
         {
-           return _dbContext.Pies.Where(p => p.IsPieOfTheWeek).ToList();
+           return _dbContext.Pies.Include(c => c.Category).Where(p => p.IsPieOfTheWeek);
         }
 
 
