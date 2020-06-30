@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using BethanysPieShop.DbHelper;
+using BethanysPieShop.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,6 +29,9 @@ namespace BethanysPieShop
         {
             services.AddDbContext<StoreDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IPieRepository, PieRepository>();
 
             services.AddControllersWithViews();//services.AddMvc(); would also work still
 
