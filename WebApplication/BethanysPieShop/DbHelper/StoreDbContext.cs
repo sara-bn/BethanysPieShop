@@ -1,4 +1,6 @@
 ﻿using BethanysPieShop.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BethanysPieShop.DbHelper
 {
-    public class StoreDbContext: DbContext
+    public class StoreDbContext: IdentityDbContext<IdentityUser>
     {
         public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
         {
