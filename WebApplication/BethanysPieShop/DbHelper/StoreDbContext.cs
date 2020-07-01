@@ -17,6 +17,7 @@ namespace BethanysPieShop.DbHelper
         public DbSet<Pie> Pies { get; set; }
 
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<Order>Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

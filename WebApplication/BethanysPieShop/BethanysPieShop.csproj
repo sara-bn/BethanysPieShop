@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="NewFolder\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
 
 </Project>
