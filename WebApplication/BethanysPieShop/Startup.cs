@@ -32,7 +32,7 @@ namespace BethanysPieShop
             services.AddDbContext<StoreDbContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<StoreDbContext>();
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<StoreDbContext>();
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IPieRepository, PieRepository>();
@@ -71,6 +71,8 @@ namespace BethanysPieShop
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
             });
         }
     }
